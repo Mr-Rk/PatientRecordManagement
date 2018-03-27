@@ -35,6 +35,11 @@ public class PatientController {
 				new CustomDateEditor(dateFormat, false));	
 	}
 	
+	@RequestMapping("home.htm")
+	public String lunchHomePage() {
+		return "home";
+	}
+	
 	@RequestMapping(value="getAllPatients.htm",method=RequestMethod.GET)
 	public String reportAllPatients(Model patientData) {
 		
