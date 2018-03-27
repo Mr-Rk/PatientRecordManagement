@@ -15,13 +15,16 @@
    <tx:advice id="hbTxMgr" transaction-manager="hbTxn">
      <tx:attributes>
       <tx:method name="doRegistration" propagation="REQUIRED"/>
+      <tx:method name="getAllPatientData" propagation="REQUIRED" read-only="true"/>
      </tx:attributes>
    </tx:advice>
 
    <aop:config>
     <aop:pointcut id="doRegistrationPointCut"
       expression="execution(* com.rk.service.PatientRegistrationServiceImpl.doRegistration(..))"/>
-     <aop:advisor advice-ref="hbTxMgr" pointcut-ref="doRegistrationPointCut"/> 
+     <aop:advisor advice-ref="hbTxMgr" pointcut-ref="doRegistrationPointCut"/>
+     
+     <aop:advisor advice-ref="hbTxMgr" pointcut="execution(* com.rk.service.PatientRegistrationServiceImpl.getAllPatientData(..))"/>
    </aop:config>
  
    
