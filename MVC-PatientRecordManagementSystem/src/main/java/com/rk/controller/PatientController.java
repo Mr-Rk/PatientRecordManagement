@@ -50,7 +50,7 @@ public class PatientController {
 	}
 	
 	
-	@RequestMapping(value="patientRegdForm.htm")
+	@RequestMapping(value="patientRegdForm.htm",method=RequestMethod.GET)
 	public String lunchPatientInfoForm() {
 		return "patient-register";
 	}
