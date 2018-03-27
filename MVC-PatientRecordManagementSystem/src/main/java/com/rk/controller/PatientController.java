@@ -12,6 +12,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.rk.dto.PatientInfo;
 import com.rk.service.PatientRegistrationService;
@@ -31,14 +32,20 @@ public class PatientController {
 	public void bindData(WebDataBinder dataBinder) {
 		SimpleDateFormat dateFormat=new SimpleDateFormat("MM-dd-yyyy");
 		dataBinder.registerCustomEditor(Date.class, "admisionDate", 
-				new CustomDateEditor(dateFormat, false));
+				new CustomDateEditor(dateFormat, false));	
+	}
+	
+	@RequestMapping(value="getAllPatients.htm",method=RequestMethod.GET)
+	public String reportAllPatients(Model patientData) {
 		
+		//invoking the service method to get the all the patient information.
+		patientData.addAttribute("patientList",patientService.getAllPatientData());
 		
-		
+		return "patient-report";
 	}
 	
 	
-	@RequestMapping(value="/home.htm")
+	@RequestMapping(value="patientRegdForm.htm")
 	public String lunchPatientInfoForm() {
 		return "patient-register";
 	}

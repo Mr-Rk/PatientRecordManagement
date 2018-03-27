@@ -1,5 +1,7 @@
 package com.rk.service;
 
+import java.util.List;
+
 import com.rk.dao.PatientRegistrationDAO;
 import com.rk.dto.PatientInfo;
 
@@ -20,5 +22,10 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 		
 		return "The patient info registred successfull and patient id is "+patientId;
 	}//method
+
+	@Override
+	public List<PatientInfo> getAllPatientData() {
+		return patientRegistrationDAO.getAllPatients();
+	}
 
 }//class

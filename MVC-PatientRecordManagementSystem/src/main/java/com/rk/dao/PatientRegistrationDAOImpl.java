@@ -1,5 +1,8 @@
 package com.rk.dao;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -25,6 +28,26 @@ public class PatientRegistrationDAOImpl implements PatientRegistrationDAO {
 		
 		//returning the generated patient id.
 		return generatedPatientId;
+	}//method
+
+	@Override
+	public List<PatientInfo> getAllPatients() {
+
+		Session session=null;
+		Criteria patientCriteria=null;
+		List<PatientInfo>  patientList=null;
+		
+		
+		//getting a session object from the sessionfactory.
+		session=factory.getCurrentSession();
+		
+		//preparing the Criteria object.
+		patientCriteria=session.createCriteria(PatientInfo.class);
+		
+		patientList=patientCriteria.list();
+		
+		
+		return patientList;
 	}//method
 
 }//class
