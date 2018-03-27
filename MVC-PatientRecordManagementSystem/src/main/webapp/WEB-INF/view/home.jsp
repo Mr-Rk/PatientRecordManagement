@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Patient Management </title>
 </head>
-<body>
+<body background="images/ball with gray color wall.jpg">
 
   <div>
    <h3><a href="patientRegdForm.htm">Patient Registration</a></h3>
