@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+     <!-- Configuring the jndi data source  -->
+  <bean id="jofb" class="org.springframework.jndi.JndiObjectFactoryBean">
+   <property name="jndiName" value="java:/comp/env/mypool"/>
+  </bean>
+  
+  <!-- configuring the hibernate session factory bean. -->
+  <bean id="hbSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+     
+     
+     <!-- setting package name to scan annoted entity classes. -->
+    <property name="annotatedClasses">
+       <array>
+       <value>com.rk.dto.PatientInfo</value>
+       </array>
+    </property>
+      
+      <!-- Configuring the hibernate properties -->
+    <property name="hibernateProperties">
+      <props>
+      <!--  <prop key="hibernate.current_session_context_class">thread</prop> -->
+       <prop key="hibernate.show_sql">true</prop>
+       <prop key="hibernate.format_sql">true</prop>
+       <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+       <prop key="hibernate.hbm2ddl.auto">update</prop>
+      </props>
+    </property>
+    
+    <!-- setting the datasource object. -->
+    <property name="dataSource" ref="jofb"/>
+  </bean>
+  
+
+  <bean id="patientRegistrationDAO" class="com.rk.dao.PatientRegistrationDAOImpl">
+   <constructor-arg name="factory" ref="hbSessionFactory"/>
+  </bean>   
+
+
+</beans>
