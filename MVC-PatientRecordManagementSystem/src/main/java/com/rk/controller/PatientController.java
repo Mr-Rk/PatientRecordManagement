@@ -55,7 +55,7 @@ public class PatientController {
 		return "patient-register";
 	}
 	
-	@RequestMapping(value="doRegistration.htm")
+	@RequestMapping(value="doRegistration.htm",method=RequestMethod.POST)
 	public String doPatientRegistration(@ModelAttribute PatientInfo patientInfo,
 			                                            Model model,HttpServletRequest request) {
 		if(patientInfo!=null) {
