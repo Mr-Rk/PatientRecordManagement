@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rk.dto.PatientInfo;
 import com.rk.service.PatientRegistrationService;
@@ -69,5 +70,16 @@ public class PatientController {
 		
 		return "result";
 	}//method
+	
+	
+	@RequestMapping(value="updatePatient.htm",method=RequestMethod.GET)
+	public String updatePatient(@RequestParam("pId") int pId) {
+		return null;
+	}
+	
+	@RequestMapping(value="updatePatient.htm",method=RequestMethod.GET)
+	public String deletePatient(@RequestParam("pId") int pId) {
+		return null;
+	}
 
 }

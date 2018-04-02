@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 
 import com.rk.dto.PatientInfo;
 
@@ -48,6 +50,30 @@ public class PatientRegistrationDAOImpl implements PatientRegistrationDAO {
 		
 		
 		return patientList;
+	}//method
+	
+	
+	@Override
+	public PatientInfo getPatientInfoById(int pId) {
+		Session session=null;
+		Criteria patientCriteria=null;
+		Criterion pIdCriterion=null; 
+		PatientInfo patientInfo=null;
+		//obtaining a session object.
+		session=factory.getCurrentSession();
+		
+		//creating the criteria object.
+		patientCriteria=session.createCriteria(PatientInfo.class);
+		//creating the pid based criterion object.
+		pIdCriterion=Restrictions.eq("patientId", pId);
+		//adding the restriction to the criteria object.
+		patientCriteria.add(pIdCriterion);
+		
+		//executin the query.
+		patientInfo=(PatientInfo)patientCriteria.uniqueResult();
+		
+		
+		return patientInfo;
 	}//method
 
 }//class

@@ -10,5 +10,7 @@ public interface PatientRegistrationService {
 	
 	public List<PatientInfo> getAllPatientData();
 	
+	public PatientInfo fetchPatientInfoById(int pId);
+	
 	
 }

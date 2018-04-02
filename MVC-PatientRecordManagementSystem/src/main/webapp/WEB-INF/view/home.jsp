@@ -8,7 +8,7 @@
 </head>
 <body background="images/ball with gray color wall.jpg">
 
-  <div>
+  <div style="margin-left: 900px;margin-top: 60px;">
    <h3><a href="patientRegdForm.htm">Patient Registration</a></h3>
    <h3><a href="getAllPatients.htm">Get All Patients</a></h3>
    <h3><a href="updatePatient.htm">Update patient Record</a></h3>

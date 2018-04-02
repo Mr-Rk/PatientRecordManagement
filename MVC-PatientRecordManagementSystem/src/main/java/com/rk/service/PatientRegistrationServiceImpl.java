@@ -28,4 +28,10 @@ public class PatientRegistrationServiceImpl implements PatientRegistrationServic
 		return patientRegistrationDAO.getAllPatients();
 	}
 
+	@Override
+	public PatientInfo fetchPatientInfoById(int pId) {
+		
+		return patientRegistrationDAO.getPatientInfoById(pId);
+	}//method
+
 }//class

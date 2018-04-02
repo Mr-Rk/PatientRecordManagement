@@ -10,5 +10,7 @@ public interface PatientRegistrationDAO {
 	public int insertPatientInfo(PatientInfo info);
 	
 	public List<PatientInfo> getAllPatients();
+	
+	public PatientInfo getPatientInfoById(int pId);
 
 }

@@ -33,7 +33,7 @@
 	private String careTackerName;
 	private String relationship;
 	private PatientAddress addrs; -->
-             <tr> <th>Patient Id</th> <th>name</th> <th>Admision Date</th> <th>PolicyNumber</th> <th>Insurance Name</th> <th>Address</th></tr>
+             <tr> <th>Patient Id</th> <th>name</th> <th>Admision Date</th> <th>PolicyNumber</th> <th>Insurance Name</th> <th>Address</th> <th>RecordOperation</th></tr>
              <c:forEach var="pInfo" items="${patientList}">
                <tr>
                <td><c:out value="${pInfo.patientId}"></c:out></td>
@@ -42,6 +42,8 @@
                <td><c:out value="${pInfo.insuranceDetails.policyNumber}"></c:out></td>
                <td><c:out value="${pInfo.insuranceDetails.insuranceCompany}"></c:out></td>
                <td><c:out value="${pInfo.addrs.street}"></c:out></td>
+               <td><a href="updatePatient.htm?pId=${pInfo.patientId}" style="background-color: green">Update</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                   <a href="deletePatient.htm?pId=${pInfo.patientId}" style="background-color: red">Delete</a></td>
              </c:forEach>
             </table>
           </c:when>
