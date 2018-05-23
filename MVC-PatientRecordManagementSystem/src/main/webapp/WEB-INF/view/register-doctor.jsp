@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
  "http://www.w3.org/TR/html4/loose.dtd">
  
@@ -15,17 +15,22 @@
        <h2 style="color:green;text-shadow: silver;">
                                                 Doctor registration form</h2>
      
-        <form:form commandName="doctorData" method="post">
+        <form:form  action="doctorRegistration.htm" commandName="doctorData" method="POST">
         
-        Doctor name::<form:input type="text"  path="doctorName"/>
-        Experience ::<form:input type="text"  path="expr"/>
-        DOB        ::<form:input type="date"  path="dob"/>
-        phno       ::<form:input type="text"  path="phno"/>
-        specialist ::<form:input type="text"  path="specialist"/>
-        <input type="submit" value="Register"/>
+        Doctor name::<form:input type="text"  path="doctorName"/><br>
+        Experience ::<form:input type="text"  path="expr"/><br>
+        DOB        ::<form:input type="date"  path="dob"/><br>
+        phno       ::<form:input type="text"  path="phno"/><br>
+        
+        specialist ::<form:select path="specialist" items="${specialistTypes}">
+                     </form:select><br>
+        <input type="submit" value="Register"/> &nbsp;&nbsp;&nbsp;&nbsp;
         <input type="reset" value="clear"/>
        </form:form>
+       
+       <form:errors path="*"/>
      </div>
+
 
 </body>
 </html>

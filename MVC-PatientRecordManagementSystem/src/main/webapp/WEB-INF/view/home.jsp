@@ -14,6 +14,11 @@
    <h3><a href="updatePatient.htm">Update patient Record</a></h3>
    <h3><a href="deletePatient.htm">Delete patient record</a></h3>
   </div>
+  
+  
+  <div>
+   <h2><a href="lunch-doctor-signup-form.htm">Register a Doctor</a></h2>
+  </div>
 
 </body>
 </html>

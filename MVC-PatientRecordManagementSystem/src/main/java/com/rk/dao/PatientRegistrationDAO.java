@@ -12,5 +12,7 @@ public interface PatientRegistrationDAO {
 	public List<PatientInfo> getAllPatients();
 	
 	public PatientInfo getPatientInfoById(int pId);
-
+	
+	public void updatePatientInfo(PatientInfo patientInfo);
+	
 }

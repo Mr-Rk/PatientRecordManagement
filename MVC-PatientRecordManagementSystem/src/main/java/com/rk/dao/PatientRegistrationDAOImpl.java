@@ -48,7 +48,7 @@ public class PatientRegistrationDAOImpl implements PatientRegistrationDAO {
 		
 		patientList=patientCriteria.list();
 		
-		
+		//session.close();
 		return patientList;
 	}//method
 	
@@ -72,8 +72,22 @@ public class PatientRegistrationDAOImpl implements PatientRegistrationDAO {
 		//executin the query.
 		patientInfo=(PatientInfo)patientCriteria.uniqueResult();
 		
+		//closing the session.
+		//session.close(); //session should no be closed because it is closing the internal connection.
 		
 		return patientInfo;
 	}//method
 
+	@Override
+	public void updatePatientInfo(PatientInfo patientInfo) {
+		Session session=null;
+		
+		//obtain a session 
+		session=factory.getCurrentSession();
+		
+		session.update(patientInfo);
+		
+	}//method
+
+	
 }//class
