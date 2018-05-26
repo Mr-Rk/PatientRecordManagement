@@ -11,8 +11,7 @@
 
         <h2 style="color:white;text-align:center;">Doctor Registration Status</h2>
         
-        ${status}
-
+    <h2>${status}</h2>    
 
 </body>
 </html>
